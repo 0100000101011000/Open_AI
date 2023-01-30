@@ -1,26 +1,26 @@
 import tkinter as tk
+from GradientFrame import GradientFrame
 
+def gpt_window():
 
-root = tk.Tk()
-root.title("AskGPT")
-root.minsize(600,400)
-root.configure(background="#77f296")
+  root = tk.Tk()
+  root.title("AskGPT")
 
-label = tk.Label(root, text="Frag etwas",font=("Arial",12),background="#77f296",foreground="#FFFFFF")
-label.pack()
+  gf = GradientFrame(root, colors = ("#FFFFFF", "#34eb74"), width = 800, height = 600)
+  gf.config(direction = gf.top2bottom)
+  gf.pack()
 
-askbox = tk.Text(root, width=30, height=6)
-askbox.pack(pady=5)
+  label = tk.Label(gf, text="Frag etwas:",font=("Arial",12),background="#FFFFFF",foreground="#000000")
+  label.pack(pady=20)
 
-button = tk.Button(root, text="Tell me!",font=("Arial",12),padx=15)
-button.pack(pady=10)
+  askbox = tk.Text(gf, width=50, height=6)
+  askbox.pack(pady=5)
 
-answerebox = tk.Text(root, width=30, height=6)
-answerebox.configure(state="disabled")
-answerebox.pack()
+  button = tk.Button(gf, text="Tell me!",font=("Arial",12),padx=15)
+  button.pack(pady=20,padx=50)
 
+  answerebox = tk.Text(gf, width=50, height=6)
+  answerebox.configure(state="disabled")
+  answerebox.pack(pady=50,padx=50)
 
-
-
-
-root.mainloop()
+  root.mainloop()
