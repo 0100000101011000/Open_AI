@@ -5,7 +5,7 @@ import os
 
 
 def test_quest():
-    print(request_gpt("Höchste Gebäude Europas"))
+    print(request_gpt("Fünf Hundenamen"))
 
 
 def request_gpt(question:str):
@@ -38,7 +38,9 @@ def request_gpt(question:str):
 
     if response.status_code == 200:
         json_response = json.loads(response.content)
-        return json_response["choices"][0]["text"]
+        answere = json_response["choices"][0]["text"]
+        
+        return answere
     else:
         return "Error: ", response.content
 
