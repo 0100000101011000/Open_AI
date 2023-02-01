@@ -1,5 +1,7 @@
 from interface import GptWindow
-# import openai_request
+from openai_request import request_gpt
 
-root = GptWindow(color2="#34eb74")
+#34eb74
+
+root = GptWindow(color1="#7657e3", color2="#ffa247", aFunction=request_gpt)
 root.mainloop()
