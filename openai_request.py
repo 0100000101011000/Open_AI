@@ -1,6 +1,7 @@
 import openai
 import json
 import requests
+import os
 
 
 def test_quest():
@@ -12,8 +13,8 @@ def request_gpt(question:str):
     try:
         with open("C:/gptkey/gptkey.txt","r") as file:
             mykey = file.read()
-    except:
-        mykey = "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"
+    except SystemError:
+        print(os.error)
 
     openai.organization = "org-I9o2AkEBNABq4qZXcuBuhS8L"
     openai.api_key = mykey
