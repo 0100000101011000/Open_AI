@@ -2,13 +2,6 @@ from interface import GptWindow
 from openai_request import request_gpt
 import tkinter as tk
 
-class KeyAsk(tk.Tk):
-    def __init__(self):
-        tk.Tk.__init__(self)
-        
-
-
-def keyAsk():
 
 
 def searchKey():
@@ -17,7 +10,7 @@ def searchKey():
             key = file.read()
             return key
     except:
-        key = keyAsk()
+        return "Key not found"
 
 key = searchKey()
 

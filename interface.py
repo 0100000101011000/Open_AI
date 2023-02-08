@@ -1,5 +1,6 @@
 import tkinter as tk
 from GradientFrame import GradientFrame
+from enterkey import enterKey
 
 
 class GptWindow(tk.Tk):
@@ -35,15 +36,17 @@ class GptWindow(tk.Tk):
         self.answerebox.configure(state="disabled",font=12)
         self.answerebox.pack(pady=50,padx=50)
 
-    #     self.checkKey(self)
+        if self.key == "Key not found":
+            self.keyAsk()
 
-    # def checkKey(self.key):
-    #     # if ...
-    #     self.key = self.key
+    def keyAsk(self):
+        keyask = enterKey()
+        keyask.wait_window()
+        self.key = keyask.key
 
     def buttonCommand(self):
         question = self.askbox.get("0.0", "end")
-        answere = self.aFunction(question)
+        answere = self.aFunction(question, self.key)
         self.answerebox.configure(state="normal")
         self.answerebox.delete("0.0", "end")
         self.answerebox.insert("0.0", answere)
