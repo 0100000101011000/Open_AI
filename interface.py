@@ -7,7 +7,9 @@ class GptWindow(tk.Tk):
     def noFunction(trash):
         return "Keine Funktion"
 
-    def __init__(self, color1="#FFFFFF", color2="#000000", aFunction=noFunction):
+    def __init__(self, color1="#FFFFFF", color2="#000000", key="", aFunction=noFunction):
+
+        self.key = key
 
         tk.Tk.__init__(self)
         self.title("AskGPT")
@@ -26,14 +28,20 @@ class GptWindow(tk.Tk):
         self.askbox.configure(font=12)
         self.askbox.pack(pady=5)
 
-        button = tk.Button(gf, text="Tell me!",font=("Terminal",12),padx=15, command=self.button_command)
+        button = tk.Button(gf, text="Tell me!",font=("Terminal",12),padx=15, command=self.buttonCommand)
         button.pack(pady=20,padx=50)
 
         self.answerebox = tk.Text(gf, width=50, height=6)
         self.answerebox.configure(state="disabled",font=12)
         self.answerebox.pack(pady=50,padx=50)
 
-    def button_command(self):
+    #     self.checkKey(self)
+
+    # def checkKey(self.key):
+    #     # if ...
+    #     self.key = self.key
+
+    def buttonCommand(self):
         question = self.askbox.get("0.0", "end")
         answere = self.aFunction(question)
         self.answerebox.configure(state="normal")
