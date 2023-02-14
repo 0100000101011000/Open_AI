@@ -47,7 +47,10 @@ class GptWindow(tk.Tk):
     def buttonCommand(self):
         question = self.askbox.get("0.0", "end")
         answere = self.aFunction(question, self.key)
-        self.answerebox.configure(state="normal")
-        self.answerebox.delete("0.0", "end")
-        self.answerebox.insert("0.0", answere)
-        self.answerebox.configure(state="disabled")
+        if answere != "Invalid key":
+            self.answerebox.configure(state="normal")
+            self.answerebox.delete("0.0", "end")
+            self.answerebox.insert("0.0", answere)
+            self.answerebox.configure(state="disabled")
+        else:
+            self.keyAsk()

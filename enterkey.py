@@ -1,4 +1,6 @@
 import tkinter as tk
+from tkinter import messagebox
+from openai_request import testRequest
 
 class enterKey(tk.Tk):
   
@@ -16,7 +18,10 @@ class enterKey(tk.Tk):
 
     def getKey(self):
         self.key = self.input.get()
-        self.destroy()
+        if testRequest(self.key) == "Valid key":
+            self.destroy()
+        else:
+            messagebox.showerror(title="Error",message="Ungültiger Key!")
 
 
 
