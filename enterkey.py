@@ -1,8 +1,9 @@
 import tkinter as tk
 from tkinter import messagebox
 from openai_request import testRequest
+from filemanager import saveKey
 
-class enterKey(tk.Tk):
+class EnterKeyWindow(tk.Tk):
   
 
     def __init__(self):
@@ -16,12 +17,19 @@ class enterKey(tk.Tk):
         self.input.pack()
         self.button.pack()
 
+
     def getKey(self):
+        # Takes the user inserted key and checks if it's valid
         self.key = self.input.get()
+
         if testRequest(self.key) == "Valid key":
-            self.destroy()
+            saveKey(self.key)
+            self.destroy() # This will allow the calling function to continue
+
         else:
+            # If not...
             messagebox.showerror(title="Error",message="Ungültiger Key!")
+            self.focus_force()
 
 
 

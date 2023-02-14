@@ -1,14 +1,16 @@
 import tkinter as tk
 from GradientFrame import GradientFrame
-from enterkey import enterKey
+from enterkey import EnterKeyWindow
 
 
 class GptWindow(tk.Tk):
 
-    def noFunction(trash):
-        return "Keine Funktion"
+    """"""
 
-    def __init__(self, color1="#FFFFFF", color2="#000000", key="", aFunction=noFunction):
+    def noFunction(*args):
+        return "Function is missing"
+
+    def __init__(self, color1="#FFFFFF", color2="#000000", key="not telled", aFunction=noFunction):
 
         self.key = key
 
@@ -17,32 +19,54 @@ class GptWindow(tk.Tk):
 
         self.aFunction = aFunction
         self.iconbitmap("C:/programming/Open_AI/icon.ico")
+        
+        #Sets the backgroundcolor for the main window
+        self.gf = GradientFrame(self, colors = (color1, color2), width = 800, height = 600)
+        self.gf.config(direction = self.gf.top2bottom)
+        self.gf.pack()
 
-        gf = GradientFrame(self, colors = (color1, color2), width = 800, height = 600)
-        gf.config(direction = gf.top2bottom)
-        gf.pack()
+        self.label = tk.Label(self.gf, text="Ask GPT!",font=("Terminal",14,"bold"),background="#7657e3",foreground="#FFFFFF")
+        self.label.pack(pady=20)
 
-        label = tk.Label(gf, text="Ask GPT!",font=("Terminal",14,"bold"),background="#7657e3",foreground="#FFFFFF")
-        label.pack(pady=20)
-
-        self.askbox = tk.Text(gf, width=50, height=6)
+        self.askbox = tk.Text(self.gf, width=50, height=6)
         self.askbox.configure(font=12)
         self.askbox.pack(pady=5)
 
-        button = tk.Button(gf, text="Tell me!",font=("Terminal",12),padx=15, command=self.buttonCommand)
-        button.pack(pady=20,padx=50)
+        self.button = tk.Button(self.gf, text="Tell me!",font=("Terminal",12),padx=15, command=self.buttonCommand)
+        self.button.pack(pady=20,padx=50)
+        
 
-        self.answerebox = tk.Text(gf, width=50, height=6)
+        self.answerebox = tk.Text(self.gf, width=50, height=6)
         self.answerebox.configure(state="disabled",font=12)
         self.answerebox.pack(pady=50,padx=50)
 
-        if self.key == "Key not found":
+        if self.key == ("Key not found" or "not telled"):
             self.keyAsk()
 
+
     def keyAsk(self):
-        keyask = enterKey()
-        keyask.wait_window()
-        self.key = keyask.key
+        
+        # Creats an instanse of EnterKeyWindow as enter_a_key which takes the key
+        # as an user input. keyAsk waits for the enter_a_key window self closing,
+        # what it will do after reseiving a valid key. Then it takes the key from
+        # the still living object
+
+        self.button.configure(state="disabled")
+        
+        self.enter_a_key = EnterKeyWindow()
+        self.enter_a_key.protocol("WM_DELETE_WINDOW", self.on_closing)
+        self.enter_a_key.wait_window()
+        # Here the code stops untill the enter_a_key window is destroyed
+        self.key = self.enter_a_key.key
+
+        self.button.configure(state="normal")
+
+
+    def on_closing(self):
+        # In case the user closes the window by himself
+        self.enter_a_key.destroy()
+        self.destroy()
+
 
     def buttonCommand(self):
         question = self.askbox.get("0.0", "end")

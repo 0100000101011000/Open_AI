@@ -1,9 +1,11 @@
 import openai
 import json
 import requests
-step = 0
 
 def testRequest(key:str):
+    # It catches any error messages from the api and
+    # justifies it with an invalid key. This is a very
+    # dirty way and I will change it in the future
     try:
         request_gpt("Hallo", key)
         return "Valid key"
@@ -30,14 +32,12 @@ def request_gpt(question:str, key:str):
         "temperature": 0.6,
         "max_tokens": 200
     }
-    print("Jawoll1")
+   
     response = requests.post(url, headers=headers, json=data)
     print(response.status_code)
-    if response.status_code == 200:
-        
+    if response.status_code == 200:  
         json_response = json.loads(response.content)
         answere = json_response["choices"][0]["text"]
-        print("Jawoll3")
         return answere
     else:
         return "Error: ", response.content

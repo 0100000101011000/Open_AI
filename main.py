@@ -1,18 +1,18 @@
 from interface import GptWindow
 from openai_request import request_gpt
 import tkinter as tk
+from filemanager import searchKey
 
 
-
-def searchKey():
-    try:
-        with open("C:/gptkey/gptkey.txt", "r") as file:
-            key = file.read()
-            return key
-    except:
-        return "Key not found"
 
 key = searchKey()
 
-root = GptWindow(color1="#7657e3", color2="#ffa247", key=key, aFunction=request_gpt)
+
+# Creats an instanse of the main window
+root = GptWindow(color1="#7657e3",
+                 color2="#ffa247",
+                 key=key,
+                 aFunction=request_gpt
+)
+
 root.mainloop()
