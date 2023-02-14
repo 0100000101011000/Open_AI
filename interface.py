@@ -46,7 +46,7 @@ class GptWindow(tk.Tk):
 
     def keyAsk(self):
         
-        # Creats an instanse of EnterKeyWindow as enter_a_key which takes the key
+        # Creats an instance of EnterKeyWindow as enter_a_key which takes the key
         # as an user input. keyAsk waits for the enter_a_key window self closing,
         # what it will do after reseiving a valid key. Then it takes the key from
         # the still living object
