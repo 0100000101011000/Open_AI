@@ -1,5 +1,5 @@
 from interface import GptWindow
-from openai_request import request_gpt
+from openaiRequest import request_gpt
 import tkinter as tk
 from filemanager import searchKey
 
