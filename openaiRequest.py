@@ -7,13 +7,13 @@ def testRequest(key:str):
     # justifies it with an invalid key. This is a very
     # dirty way and I will change it in the future
     try:
-        request_gpt("Hallo", key)
+        requestGpt("Hallo", key)
         return "Valid key"
     except:
         return "Invalid key"
 
 
-def request_gpt(question:str, key:str):
+def requestGpt(question:str, key:str):
 
     openai.organization = "org-I9o2AkEBNABq4qZXcuBuhS8L"
     openai.api_key = key

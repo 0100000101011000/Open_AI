@@ -1,5 +1,5 @@
 from interface import GptWindow
-from openaiRequest import request_gpt
+from openaiRequest import requestGpt
 from filemanager import searchKey
 
 
@@ -11,7 +11,7 @@ key = searchKey()
 root = GptWindow(color1="#7657e3",
                  color2="#ffa247",
                  key=key,
-                 aFunction=request_gpt
+                 aFunction=requestGpt
 )
 
 root.mainloop()

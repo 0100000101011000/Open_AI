@@ -5,7 +5,6 @@ from enterkey import EnterKeyWindow
 
 class GptWindow(tk.Tk):
 
-    """"""
 
     def noFunction(*args):
         return "Function is missing"
@@ -43,9 +42,7 @@ class GptWindow(tk.Tk):
         if self.key == ("Key not found" or "not telled"):
             self.keyAsk()
 
-
-    def keyAsk(self):
-        
+    def keyAsk(self):     
         # Creats an instance of EnterKeyWindow as enter_a_key which takes the key
         # as an user input. keyAsk waits for the enter_a_key window self closing,
         # what it will do after reseiving a valid key. Then it takes the key from
@@ -61,12 +58,10 @@ class GptWindow(tk.Tk):
 
         self.button.configure(state="normal")
 
-
     def on_closing(self):
         # In case the user closes the window by himself
         self.enter_a_key.destroy()
         self.destroy()
-
 
     def buttonCommand(self):
         question = self.askbox.get("0.0", "end")
