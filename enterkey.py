@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-from openai_request import testRequest
+from openaiRequest import testRequest
 from filemanager import saveKey
 
 class EnterKeyWindow(tk.Tk):

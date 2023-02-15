@@ -18,7 +18,7 @@ class GptWindow(tk.Tk):
         self.title("AskGPT")
 
         self.aFunction = aFunction
-        self.iconbitmap("C:/programming/Open_AI/icon.ico")
+        self.iconbitmap("icon.ico")
         
         #Sets the backgroundcolor for the main window
         self.gf = GradientFrame(self, colors = (color1, color2), width = 800, height = 600)
