@@ -1,0 +1,101 @@
+[33mcommit 04e59d161469199ed27142ca2944fd63fccb8f6a[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: 0100000101011000 <alex92_guckheim@web.de>
+Date:   Wed Mar 15 22:36:53 2023 +0100
+
+    Added organisation input filed
+
+[33mcommit d5f047b520ae4ccba5047f8a560e7b3571e74fa8[m
+Author: 0100000101011000 <alex92_guckheim@web.de>
+Date:   Tue Feb 14 21:41:11 2023 +0100
+
+    cleaned up
+
+[33mcommit 3d3327a36287cad9797fad0b86752920704cd8a8[m
+Author: 0100000101011000 <alex92_guckheim@web.de>
+Date:   Tue Feb 14 21:39:39 2023 +0100
+
+    AlmostUseable
+
+[33mcommit 8f5243b990198bc5ab7efba019b172166d79ade7[m
+Author: 0100000101011000 <alex92_guckheim@web.de>
+Date:   Tue Feb 14 17:54:33 2023 +0100
+
+    Errormessage bei ungültigen Key
+
+[33mcommit bbdbe27db93f2b4fdde2a61e8f09281525017472[m
+Author: 0100000101011000 <alex92_guckheim@web.de>
+Date:   Wed Feb 8 13:48:14 2023 +0100
+
+    jetztGedo
+
+[33mcommit 38b487b2a0ce904484b3801a8b62b8c671fe75ab[m
+Author: 0100000101011000 <alex92_guckheim@web.de>
+Date:   Wed Feb 8 12:32:27 2023 +0100
+
+    newDirection
+
+[33mcommit b7604f6d56647afd859228629481eab56f72aed0[m
+Author: 0100000101011000 <alex92_guckheim@web.de>
+Date:   Tue Feb 7 09:51:36 2023 +0100
+
+    commit
+
+[33mcommit 53e35e4bb2920248ab25bddceb3208b1d61ce08b[m
+Author: 0100000101011000 <alex92_guckheim@web.de>
+Date:   Wed Feb 1 14:52:22 2023 +0100
+
+    beta0.1
+
+[33mcommit 913d1139f7db5e55ae1496ed5a2560c33af776e1[m
+Author: 0100000101011000 <alex92_guckheim@web.de>
+Date:   Wed Feb 1 14:32:02 2023 +0100
+
+    beta
+
+[33mcommit 4108d963deccc390b590f190dde42a2c9d2576b9[m
+Author: 0100000101011000 <alex92_guckheim@web.de>
+Date:   Wed Feb 1 11:51:24 2023 +0100
+
+    alpha_version
+
+[33mcommit e630fe984e382babce791fd06d258b9434728262[m
+Author: 0100000101011000 <alex92_guckheim@web.de>
+Date:   Tue Jan 31 22:02:23 2023 +0100
+
+    GetInput&PutOutput
+
+[33mcommit aceee0e0931b0e4d77f7bc6baabf6536beab8929[m
+Author: 0100000101011000 <alex92_guckheim@web.de>
+Date:   Tue Jan 31 15:22:01 2023 +0100
+
+    Window2Class
+
+[33mcommit 2f8849c51e356116732b837ff1ad8c39805b87c4[m
+Author: 0100000101011000 <alex92_guckheim@web.de>
+Date:   Mon Jan 30 21:24:04 2023 +0100
+
+    Farbübergang
+
+[33mcommit 05e8cb73a822fed6a527b12717639db39e1cf06b[m
+Author: 0100000101011000 <alex92_guckheim@web.de>
+Date:   Mon Jan 30 20:56:00 2023 +0100
+
+    somechanges
+
+[33mcommit f5327547fb8a2d9e77a1dcabdc07366275d82da9[m
+Author: 0100000101011000 <alex92_guckheim@web.de>
+Date:   Mon Jan 30 15:28:59 2023 +0100
+
+    gui
+
+[33mcommit aa61a8940f3332836f24e77256ce0ca83ae66507[m
+Author: 0100000101011000 <alex92_guckheim@web.de>
+Date:   Mon Jan 30 10:39:40 2023 +0100
+
+    changes
+
+[33mcommit 9a879fa2a7ad9d1398f568698c3490bb343de25d[m
+Author: 0100000101011000 <alex92_guckheim@web.de>
+Date:   Sun Jan 29 22:42:31 2023 +0100
+
+    first

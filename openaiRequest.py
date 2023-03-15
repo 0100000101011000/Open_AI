@@ -2,20 +2,20 @@ import openai
 import json
 import requests
 
-def testRequest(key:str):
+def testRequest(organ:str, key:str):
     # It catches any error messages from the api and
     # justifies it with an invalid key. This is a very
     # dirty way and I will change it in the future
     try:
-        requestGpt("Hallo", key)
+        requestGpt("Hallo", organ, key)
         return "Valid key"
     except:
         return "Invalid key"
 
 
-def requestGpt(question:str, key:str):
+def requestGpt(question:str, organ:str, key:str):
 
-    openai.organization = "org-I9o2AkEBNABq4qZXcuBuhS8L"
+    openai.organization = organ
     openai.api_key = key
     openai.Model.list()
    

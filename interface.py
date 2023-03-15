@@ -9,8 +9,9 @@ class GptWindow(tk.Tk):
     def noFunction(*args):
         return "Function is missing"
 
-    def __init__(self, color1="#FFFFFF", color2="#000000", key="not telled", aFunction=noFunction):
+    def __init__(self, color1="#FFFFFF", color2="#000000", organ="not telled", key="not telled", aFunction=noFunction):
 
+        self.organ = organ
         self.key = key
 
         tk.Tk.__init__(self)
@@ -54,6 +55,7 @@ class GptWindow(tk.Tk):
         self.enter_a_key.protocol("WM_DELETE_WINDOW", self.on_closing)
         self.enter_a_key.wait_window()
         # Here the code stops untill the enter_a_key window is destroyed
+        self.organ = self.enter_a_key.organ
         self.key = self.enter_a_key.key
 
         self.button.configure(state="normal")
@@ -65,7 +67,7 @@ class GptWindow(tk.Tk):
 
     def buttonCommand(self):
         question = self.askbox.get("0.0", "end")
-        answere = self.aFunction(question, self.key)
+        answere = self.aFunction(question, self.organ, self.key)
         if answere != "Invalid key":
             self.answerebox.configure(state="normal")
             self.answerebox.delete("0.0", "end")
