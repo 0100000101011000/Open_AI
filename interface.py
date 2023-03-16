@@ -1,6 +1,7 @@
 import tkinter as tk
 from GradientFrame import GradientFrame
 from enterkey import EnterKeyWindow
+from tkinter import Scrollbar
 
 
 class GptWindow(tk.Tk):
@@ -28,20 +29,30 @@ class GptWindow(tk.Tk):
         self.label = tk.Label(self.gf, text="Ask GPT!",font=("Terminal",14,"bold"),background="#7657e3",foreground="#FFFFFF")
         self.label.pack(pady=20)
 
-        self.askbox = tk.Text(self.gf, width=50, height=6)
+        self.askbox = tk.Text(self.gf, width=50, height=6, wrap="word")
         self.askbox.configure(font=12)
         self.askbox.pack(pady=5)
 
         self.button = tk.Button(self.gf, text="Tell me!",font=("Terminal",12),padx=15, command=self.buttonCommand)
         self.button.pack(pady=20,padx=50)
-        
 
-        self.answerebox = tk.Text(self.gf, width=50, height=6)
-        self.answerebox.configure(state="disabled",font=12)
-        self.answerebox.pack(pady=50,padx=50)
+        self.answerFrame = tk.Frame(self.gf)
+        self.answerFrame.pack(pady=50,padx=50)
+
+        self.scrollbar = Scrollbar(self.answerFrame)       
+        self.scrollbar.pack(side="right", fill="y")
+
+        self.answerbox = tk.Text(self.answerFrame, width=50, height=6, wrap="word", yscrollcommand=self.scrollbar.set)
+        self.answerbox.configure(state="disabled",font=12)
+        self.answerbox.pack(side="left")       
+        self.answerbox.configure(yscrollcommand=self.scrollbar.set)        
+        self.scrollbar.config(command= self.answerbox.yview)
+
+        self.resizable(width=False, height=False)
 
         if self.key == ("Key not found" or "not telled"):
             self.keyAsk()
+            
 
     def keyAsk(self):     
         # Creats an instance of EnterKeyWindow as enter_a_key which takes the key
@@ -67,11 +78,12 @@ class GptWindow(tk.Tk):
 
     def buttonCommand(self):
         question = self.askbox.get("0.0", "end")
-        answere = self.aFunction(question, self.organ, self.key)
-        if answere != "Invalid key":
-            self.answerebox.configure(state="normal")
-            self.answerebox.delete("0.0", "end")
-            self.answerebox.insert("0.0", answere)
-            self.answerebox.configure(state="disabled")
+        answer = self.aFunction(question, self.organ, self.key)
+        if answer != "Invalid key":
+            answer = answer[1:]
+            self.answerbox.configure(state="normal")
+            self.answerbox.delete("0.0", "end")
+            self.answerbox.insert("0.0", answer)
+            self.answerbox.configure(state="disabled")
         else:
             self.keyAsk()
