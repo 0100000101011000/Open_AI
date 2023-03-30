@@ -52,6 +52,9 @@ class GptWindow(tk.Tk):
 
         if self.key == ("Key not found" or "not telled"):
             self.keyAsk()
+
+        if self.organ == ("Organ not found" or "not telled"):
+            self.keyAsk()
             
 
     def keyAsk(self):     

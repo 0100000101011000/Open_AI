@@ -6,8 +6,6 @@ from filemanager import searchKey
 
 organ, key = searchKey()
 
-print(organ)
-
 # Creats an instance of the main window
 root = GptWindow(color1="#7657e3",
                  color2="#ffa247",
